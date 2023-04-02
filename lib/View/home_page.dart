@@ -6,6 +6,7 @@ import 'package:hajj_guide/Utils/constants.dart';
 import 'package:hajj_guide/View/model_viewer.dart';
 import 'package:hajj_guide/View/sketchFab.dart';
 import 'package:mailto/mailto.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
@@ -43,9 +44,14 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   ListTile(
                     title: Text("English"),
-                    onTap: () {
+                    onTap: () async {
                       //action on press
                       Get.updateLocale(Locale('en', 'US'));
+
+
+                      //save which language is selected
+                      final SharedPreferences prefs = await SharedPreferences.getInstance();
+                      await prefs.setString('language', 'en');
 
                       Navigator.of(context).pop();
                     },
@@ -53,9 +59,12 @@ class _HomePageState extends State<HomePage> {
 
                   ListTile(
                     title: Text("اردو"),
-                    onTap: () {
+                    onTap: () async {
                       //action on press
                       Get.updateLocale(Locale('ur', 'PK'));
+                      //save which language is selected
+                      final SharedPreferences prefs = await SharedPreferences.getInstance();
+                      await prefs.setString('language', 'ur');
                       Navigator.of(context).pop();
                     },
                   ),
@@ -81,8 +90,6 @@ class _HomePageState extends State<HomePage> {
                 title: const Text(' Suggestions '),
                 onTap: () {
                   funcOpenMailComposer();
-
-                  // launch('mailto:raja123@gmail.com?subject=this is subject,Title&body=This is body');
                 },
               ),
             ],
@@ -122,7 +129,9 @@ class _HomePageState extends State<HomePage> {
                             child: TextButton(
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => SketchFAb(src: 'ihram',)));
+                                      builder: (context) => SketchFAb(
+                                            src: 'ihram',
+                                          )));
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
@@ -140,9 +149,7 @@ class _HomePageState extends State<HomePage> {
                                         SizedBox(
                                           height: 10,
                                         ),
-                                        Text(
-                                          "Ihram and Intentions".tr
-                                        ),
+                                        Text("Ihram and Intentions".tr),
                                       ],
                                     ),
                                   ),
@@ -160,7 +167,9 @@ class _HomePageState extends State<HomePage> {
                             child: TextButton(
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => SketchFAb(src: 'tents',)));
+                                      builder: (context) => SketchFAb(
+                                            src: 'tents',
+                                          )));
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
@@ -178,9 +187,7 @@ class _HomePageState extends State<HomePage> {
                                         SizedBox(
                                           height: 10,
                                         ),
-                                        Text(
-                                          "Mina aka “City of tents”".tr
-                                        ),
+                                        Text("Mina aka “City of tents”".tr),
                                       ],
                                     ),
                                   ),
@@ -207,7 +214,9 @@ class _HomePageState extends State<HomePage> {
                             child: TextButton(
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => SketchFAb(src: "mina",)));
+                                      builder: (context) => SketchFAb(
+                                            src: "mina",
+                                          )));
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
@@ -226,9 +235,7 @@ class _HomePageState extends State<HomePage> {
                                         SizedBox(
                                           height: 10,
                                         ),
-                                        Text(
-                                          "Mina to Arafat".tr
-                                        ),
+                                        Text("Mina to Arafat".tr),
                                       ],
                                     ),
                                   ),
@@ -246,7 +253,9 @@ class _HomePageState extends State<HomePage> {
                             child: TextButton(
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => SketchFAb(src: 'muzdalifah',)));
+                                      builder: (context) => SketchFAb(
+                                            src: 'muzdalifah',
+                                          )));
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
@@ -265,9 +274,7 @@ class _HomePageState extends State<HomePage> {
                                         SizedBox(
                                           height: 10,
                                         ),
-                                        Text(
-                                          "Muzdalifah".tr
-                                        ),
+                                        Text("Muzdalifah".tr),
                                       ],
                                     ),
                                   ),
@@ -294,7 +301,9 @@ class _HomePageState extends State<HomePage> {
                             child: TextButton(
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => SketchFAb(src: 'rami',)));
+                                      builder: (context) => SketchFAb(
+                                            src: 'rami',
+                                          )));
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
@@ -312,9 +321,7 @@ class _HomePageState extends State<HomePage> {
                                         SizedBox(
                                           height: 10,
                                         ),
-                                        Text(
-                                          "Rami".tr
-                                        ),
+                                        Text("Rami".tr),
                                       ],
                                     ),
                                   ),
@@ -332,7 +339,9 @@ class _HomePageState extends State<HomePage> {
                             child: TextButton(
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => SketchFAb(src: 'nahr',)));
+                                      builder: (context) => SketchFAb(
+                                            src: 'nahr',
+                                          )));
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),

@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
 import 'package:hajj_guide/Utils/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SketchFAb extends StatefulWidget {
   String src;
@@ -133,11 +134,28 @@ class _SketchFAbState extends State<SketchFAb> {
                                   : widget.src == 'farewell'
                                       ? '<div class="sketchfab-embed-wrapper"> <iframe title="Kaaba" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/45d4b0b4404a4ad7b3f7235f7a10382c/embed?autospin=1&autostart=1"> </iframe> </div>'
                                       : ''),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-                "The Kaaba (“The Cube”), also referred as al-Kaʿbah al-Musharrafah (the Holy Kaaba), is a building at the center of Islam’s most important mosque, that is Al-Masjid Al-Ḥarām (The Sacred Mosque), in the Hejazi city of Mecca, Saudi Arabia. It is the most sacred site in Islam. It is considered by Muslims to be the Bayṫ Allāh (“House of God”)"),
-          )
+          Expanded(
+            child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                physics: ScrollPhysics(),
+                child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: widget.src == 'ihram'
+                        ? Text('step1'.tr)
+                        : widget.src == 'tents'
+                            ? Text('step2'.tr)
+                            : widget.src == 'mina'
+                                ? Text('step3'.tr)
+                                : widget.src == 'muzdalifah'
+                                    ? Text('step4'.tr)
+                                    : widget.src == 'rami'
+                                        ? Text('step5'.tr)
+                                        : widget.src == 'nahr'
+                                            ? Text('step6'.tr)
+                                            : widget.src == 'farewell'
+                                                ? Text('step7'.tr)
+                                                : Text("Sorry"))),
+          ),
         ],
       ),
       bottomNavigationBar: Container(
@@ -204,21 +222,43 @@ class _SketchFAbState extends State<SketchFAb> {
     // load file from assets
     final player = AudioCache(prefix: 'assets/audios/');
     setState(() async {
-      final url = await player.load(widget.src == 'ihram'
-          ? 'test.mp3'
-          : widget.src == 'tents'
-              ? '1.mpeg'
-              : widget.src == 'mina'
-                  ? '2.mpeg'
-                  : widget.src == 'muzdalifah'
-                      ? '3.mpeg'
-                      : widget.src == 'rami'
-                          ? '4.mpeg'
-                          : widget.src == 'nahr'
-                              ? '5.mpeg'
-                              : widget.src == 'farewell'
-                                  ? '6.mpeg'
-                                  : '');
+      //get the lanaguage stored in sharedprefrences
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      final String? language = prefs.getString('language');
+      print("${language}");
+
+      //first check which langage then check which screen
+      final url = language == 'en'
+          ? await player.load(widget.src == 'ihram'
+              ? 'test.mp3'
+              : widget.src == 'tents'
+                  ? '1.mpeg'
+                  : widget.src == 'mina'
+                      ? '2.mpeg'
+                      : widget.src == 'muzdalifah'
+                          ? '3.mpeg'
+                          : widget.src == 'rami'
+                              ? '4.mpeg'
+                              : widget.src == 'nahr'
+                                  ? '5.mpeg'
+                                  : widget.src == 'farewell'
+                                      ? '6.mpeg'
+                                      : '')
+          : await player.load(widget.src == 'ihram'
+              ? 'step1-ur.mp3'
+              : widget.src == 'tents'
+                  ? 'step2-ur.mp3'
+                  : widget.src == 'mina'
+                      ? 'step3-ur.mp3'
+                      : widget.src == 'muzdalifah'
+                          ? 'step4-ur.mp3'
+                          : widget.src == 'rami'
+                              ? 'step5-ur.mp3'
+                              : widget.src == 'nahr'
+                                  ? 'step6-ur.mp3'
+                                  : widget.src == 'farewell'
+                                      ? 'step7-ur.mp3'
+                                      : '');
       audioPlayer.setSourceUrl(url.path);
     });
   }

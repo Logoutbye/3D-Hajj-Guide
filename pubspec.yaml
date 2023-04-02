@@ -45,6 +45,7 @@ dependencies:
   flutter_widget_from_html: 
   # flutter_webview_plugin: 
   audioplayers: ^3.0.1
+  shared_preferences: ^2.1.0
 
   # pacakage for translations
   # flutter_localization: 
