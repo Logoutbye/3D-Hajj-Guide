@@ -44,7 +44,13 @@ class Languages extends Translations {
               '\n\nHalq and Taqsir:\n\n'
               'Halq means shaving the head, while Taqsir means shortening or clipping of hair. After performing the sacred sacrifice, men pilgrims are advised to get their heads completely shaved or clipped. While forbidden to shave their heads, women are advised to get a strand or lock of their hairs chopped. The act of Halq and Taqsir symbolizes a Muslim’s complete devotion to Allah (SWT) and detachment from worldly appearances.',
           'step7': 'Step 7 – Farewell Tawaf:\n\n'
-              'Muslim pilgrims making tawaf around the kaabaAfter completing the ritual, pilgrims return to the Holy Kaaba in Makkah to perform the “Tawaf al-Ifadah,” also known as the “Farewell Tawaf,” followed by Sa’I. Though this officially marks the end of Hajj, many pilgrims also visit Madinah before heading home.'
+              'Muslim pilgrims making tawaf around the kaabaAfter completing the ritual, pilgrims return to the Holy Kaaba in Makkah to perform the “Tawaf al-Ifadah,” also known as the “Farewell Tawaf,” followed by Sa’I. Though this officially marks the end of Hajj, many pilgrims also visit Madinah before heading home.',
+          'Qibla': 'Qibla',
+          'Tasbhee':'Tasbhee',
+          'Suggestions':'Suggestions',
+          'Hajj Guide':'Hajj Guide', 
+          'Qibla Location Finder':'Qibla Location Finder', 
+          'Hajj Check List':'Hajj Check List', 
         },
         // for Urdu
         'ur_PK': {
@@ -86,7 +92,14 @@ class Languages extends Translations {
               'حلق اور تقصیر:\n\n'
               'حلق کا مطلب ہے سر منڈوانا، جب کہ تقسیر کا مطلب ہے بالوں کو چھوٹا کرنا یا تراشنا۔ مقدس قربانی کرنے کے بعد، حجاج کے مردوں کو مشورہ دیا جاتا ہے کہ وہ اپنے سر کو مکمل طور پر منڈوائیں یا تراشیں۔ اگرچہ سر منڈوانا منع ہے، لیکن خواتین کو مشورہ دیا جاتا ہے کہ وہ اپنے کٹے ہوئے بالوں کو بند کر لیں۔ حق اور تقسیر کا عمل ایک مسلمان کی اللہ سبحانہ وتعالیٰ سے مکمل عقیدت اور دنیاوی نمود و نمائش سے لاتعلقی کی علامت ہے۔',
           'step7': 'مرحلہ 7 - الوداعی طواف:\n\n'
-              'مسلم زائرین خانہ کعبہ کا طواف کرتے ہیں رسم مکمل کرنے کے بعد، حجاج کرام مکہ مکرمہ میں خانہ کعبہ کی طرف "طواف الافادہ، جسے "الوداعی طواف" بھی کہا جاتا ہے، انجام دینے کے لیے واپس آتے ہیں، جس کے بعد سعی ہوتی ہے۔ اگرچہ یہ سرکاری طور پر حج کے اختتام کی نشاندہی کرتا ہے، لیکن بہت سے حجاج گھر جانے سے پہلے مدینہ بھی جاتے ہیں۔'
+              'مسلم زائرین خانہ کعبہ کا طواف کرتے ہیں رسم مکمل کرنے کے بعد، حجاج کرام مکہ مکرمہ میں خانہ کعبہ کی طرف "طواف الافادہ، جسے "الوداعی طواف" بھی کہا جاتا ہے، انجام دینے کے لیے واپس آتے ہیں، جس کے بعد سعی ہوتی ہے۔ اگرچہ یہ سرکاری طور پر حج کے اختتام کی نشاندہی کرتا ہے، لیکن بہت سے حجاج گھر جانے سے پہلے مدینہ بھی جاتے ہیں۔',
+          'Qibla':'قبلہ',
+          'Tasbhee':'تسبیح',
+          'Suggestions':'تجاویز',
+          'Hajj Guide':'حج گائیڈ',
+          'Qibla Location Finder':'قبلہ لوکیشن فائنڈر',
+          'Hajj Check List':'حج چیک لسٹ',
+
         },
       };
 }

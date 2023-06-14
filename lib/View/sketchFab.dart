@@ -105,10 +105,11 @@ class _SketchFAbState extends State<SketchFAb> {
                                         : widget.src == 'nahr'
                                             ? widget.src = 'farewell'
                                             : widget.src = 'ihram';
+                                            postion = Duration.zero;
                   });
                   // audioPlayer.stop();
                   if (isPlaying) {
-                    await audioPlayer.dispose();
+                    await audioPlayer.stop();
                   }
                   getAudio();
                   // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>));
@@ -176,19 +177,17 @@ class _SketchFAbState extends State<SketchFAb> {
                       color: Colors.black,
                     ))),
             Slider(
-                min: 0,
-                max: duration.inSeconds.toDouble() < 20
-                    ? 20
-                    : duration.inSeconds.toDouble(),
-                value: postion.inSeconds.toDouble(),
-                onChanged: (Value) async {
-                  final position = Duration(seconds: Value.toInt());
-
-                  await audioPlayer.seek(position);
-
-                  //optionally play audio if was paused
-                  await audioPlayer.resume();
-                }),
+              min: 0,
+              max: duration.inSeconds.toDouble(),
+              value: postion.inSeconds
+                  .toDouble()
+                  .clamp(0, duration.inSeconds.toDouble()),
+              onChanged: (value) async {
+                final position = Duration(seconds: value.toInt());
+                await audioPlayer.seek(position);
+                await audioPlayer.resume();
+              },
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Row(
@@ -218,47 +217,92 @@ class _SketchFAbState extends State<SketchFAb> {
     );
   }
 
-  Future getAudio() async {
-    // load file from assets
-    final player = AudioCache(prefix: 'assets/audios/');
-    setState(() async {
-      //get the lanaguage stored in sharedprefrences
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      final String? language = prefs.getString('language');
-      print("${language}");
+  // Future getAudio() async {
+  //   // load file from assets
+  //   final player = AudioCache(prefix: 'assets/audios/');
+  //   setState(() async {
+  //     //get the lanaguage stored in sharedprefrences
+  //     final SharedPreferences prefs = await SharedPreferences.getInstance();
+  //     final String? language = prefs.getString('language');
+  //     print("${language}");
 
-      //first check which langage then check which screen
-      final url = language == 'en'
-          ? await player.load(widget.src == 'ihram'
-              ? 'test.mp3'
-              : widget.src == 'tents'
-                  ? '1.mpeg'
-                  : widget.src == 'mina'
-                      ? '2.mpeg'
-                      : widget.src == 'muzdalifah'
-                          ? '3.mpeg'
-                          : widget.src == 'rami'
-                              ? '4.mpeg'
-                              : widget.src == 'nahr'
-                                  ? '5.mpeg'
-                                  : widget.src == 'farewell'
-                                      ? '6.mpeg'
-                                      : '')
-          : await player.load(widget.src == 'ihram'
-              ? 'step1-ur.mp3'
-              : widget.src == 'tents'
-                  ? 'step2-ur.mp3'
-                  : widget.src == 'mina'
-                      ? 'step3-ur.mp3'
-                      : widget.src == 'muzdalifah'
-                          ? 'step4-ur.mp3'
-                          : widget.src == 'rami'
-                              ? 'step5-ur.mp3'
-                              : widget.src == 'nahr'
-                                  ? 'step6-ur.mp3'
-                                  : widget.src == 'farewell'
-                                      ? 'step7-ur.mp3'
-                                      : '');
+  //     //first check which langage then check which screen
+  //     final url = language == 'en'
+  //         ? await player.load(widget.src == 'ihram'
+  //             ? 'test.mp3'
+  //             : widget.src == 'tents'
+  //                 ? '1.mpeg'
+  //                 : widget.src == 'mina'
+  //                     ? '2.mpeg'
+  //                     : widget.src == 'muzdalifah'
+  //                         ? '3.mpeg'
+  //                         : widget.src == 'rami'
+  //                             ? '4.mpeg'
+  //                             : widget.src == 'nahr'
+  //                                 ? '5.mpeg'
+  //                                 : widget.src == 'farewell'
+  //                                     ? '6.mpeg'
+  //                                     : '')
+  //         : await player.load(widget.src == 'ihram'
+  //             ? 'step1-ur.mp3'
+  //             : widget.src == 'tents'
+  //                 ? 'step2-ur.mp3'
+  //                 : widget.src == 'mina'
+  //                     ? 'step3-ur.mp3'
+  //                     : widget.src == 'muzdalifah'
+  //                         ? 'step4-ur.mp3'
+  //                         : widget.src == 'rami'
+  //                             ? 'step5-ur.mp3'
+  //                             : widget.src == 'nahr'
+  //                                 ? 'step6-ur.mp3'
+  //                                 : widget.src == 'farewell'
+  //                                     ? 'step7-ur.mp3'
+  //                                     : '');
+  //                                     setState(() {
+
+  //                                     });
+  //     audioPlayer.setSourceUrl(url.path);
+  //   });
+  // }
+
+  Future<void> getAudio() async {
+    final player = AudioCache(prefix: 'assets/audios/');
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? language = prefs.getString('language');
+
+    final url = language == 'en'
+        ? await player.load(widget.src == 'ihram'
+            ? 'test.mp3'
+            : widget.src == 'tents'
+                ? '1.mpeg'
+                : widget.src == 'mina'
+                    ? '2.mpeg'
+                    : widget.src == 'muzdalifah'
+                        ? '3.mpeg'
+                        : widget.src == 'rami'
+                            ? '4.mpeg'
+                            : widget.src == 'nahr'
+                                ? '5.mpeg'
+                                : widget.src == 'farewell'
+                                    ? '6.mpeg'
+                                    : '')
+        : await player.load(widget.src == 'ihram'
+            ? 'step1-ur.mp3'
+            : widget.src == 'tents'
+                ? 'step2-ur.mp3'
+                : widget.src == 'mina'
+                    ? 'step3-ur.mp3'
+                    : widget.src == 'muzdalifah'
+                        ? 'step4-ur.mp3'
+                        : widget.src == 'rami'
+                            ? 'step5-ur.mp3'
+                            : widget.src == 'nahr'
+                                ? 'step6-ur.mp3'
+                                : widget.src == 'farewell'
+                                    ? 'step7-ur.mp3'
+                                    : '');
+
+    setState(() {
       audioPlayer.setSourceUrl(url.path);
     });
   }

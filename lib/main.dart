@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:hajj_guide/View/home_page.dart';
 import 'package:hajj_guide/languages.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+// for class diagram 
+// import 'package:dcdg/dcdg.dart';
+
 void main() async {
-    WidgetsFlutterBinding.ensureInitialized();
-final SharedPreferences prefs = await SharedPreferences.getInstance();
-      final String? language = prefs.getString('language');
+  // Be sure to add this line if initialize() call happens before runApp()
+  WidgetsFlutterBinding.ensureInitialized();
+
+
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  final String? language = prefs.getString('language');
   runApp(MyApp(language: language));
 }
 
 class MyApp extends StatelessWidget {
-    final String? language;
+  final String? language;
 
-    MyApp({Key? key, required this.language}) : super(key: key);
-
+  MyApp({Key? key, required this.language}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -28,7 +32,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.purple,
       ),
       translations: Languages(),
-      locale:language=='ur'?  Locale('ur' , 'PK') :Locale('en', 'US'),
+      locale: language == 'ur' ? Locale('ur', 'PK') : Locale('en', 'US'),
       fallbackLocale: Locale('en', 'US'),
       home: const HomePage(),
     );
