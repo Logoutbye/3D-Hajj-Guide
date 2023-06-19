@@ -4,12 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hajj_guide/Utils/constants.dart';
 import 'package:hajj_guide/Utils/my_app_drawer.dart';
-import 'package:hajj_guide/View/Qibla/qibla.dart';
-import 'package:hajj_guide/View/model_viewer.dart';
-import 'package:hajj_guide/View/sketchFab.dart';
-import 'package:hajj_guide/View/tasbhee.dart';
+import 'package:hajj_guide/View/Hajj%20Rituals/ritual_screen.dart';
 import 'package:mailto/mailto.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HajGuideScreen extends StatefulWidget {
@@ -64,8 +60,8 @@ class _HajGuideScreenState extends State<HajGuideScreen> {
                             child: TextButton(
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => SketchFAb(
-                                            src: 'ihram',
+                                      builder: (context) => RitualScreen(
+                                            src: 'ritual1',
                                           )));
                                 },
                                 child: Padding(
@@ -102,8 +98,8 @@ class _HajGuideScreenState extends State<HajGuideScreen> {
                             child: TextButton(
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => SketchFAb(
-                                            src: 'tents',
+                                      builder: (context) => RitualScreen(
+                                            src: 'ritual2',
                                           )));
                                 },
                                 child: Padding(
@@ -149,8 +145,8 @@ class _HajGuideScreenState extends State<HajGuideScreen> {
                             child: TextButton(
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => SketchFAb(
-                                            src: "mina",
+                                      builder: (context) => RitualScreen(
+                                            src: "ritual3",
                                           )));
                                 },
                                 child: Padding(
@@ -188,8 +184,8 @@ class _HajGuideScreenState extends State<HajGuideScreen> {
                             child: TextButton(
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => SketchFAb(
-                                            src: 'muzdalifah',
+                                      builder: (context) => RitualScreen(
+                                            src: 'ritual4',
                                           )));
                                 },
                                 child: Padding(
@@ -236,8 +232,8 @@ class _HajGuideScreenState extends State<HajGuideScreen> {
                             child: TextButton(
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => SketchFAb(
-                                            src: 'rami',
+                                      builder: (context) => RitualScreen(
+                                            src: 'ritual5',
                                           )));
                                 },
                                 child: Padding(
@@ -274,8 +270,8 @@ class _HajGuideScreenState extends State<HajGuideScreen> {
                             child: TextButton(
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => SketchFAb(
-                                            src: 'nahr',
+                                      builder: (context) => RitualScreen(
+                                            src: 'ritual6',
                                           )));
                                 },
                                 child: Padding(
@@ -338,8 +334,8 @@ class _HajGuideScreenState extends State<HajGuideScreen> {
                             child: TextButton(
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => SketchFAb(
-                                            src: 'farewell',
+                                      builder: (context) => RitualScreen(
+                                            src: 'ritual7',
                                           )));
                                 },
                                 child: Padding(

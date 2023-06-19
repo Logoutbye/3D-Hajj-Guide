@@ -10,7 +10,7 @@ import '../View/tasbhee.dart';
 import 'constants.dart';
 
 class MyAppDrawer extends StatefulWidget {
-  const MyAppDrawer({super.key});
+   MyAppDrawer({super.key});
 
   @override
   State<MyAppDrawer> createState() => _MyAppDrawerState();
@@ -25,11 +25,14 @@ class _MyAppDrawerState extends State<MyAppDrawer> {
           padding: const EdgeInsets.all(0),
           children: [
             SizedBox(height: 20,),
-            const DrawerHeader(
+             DrawerHeader(
                 decoration: BoxDecoration(
                   color: Colors.white,
                 ), //BoxDecoration
-                child: Center(child: Text("Will Show App Icon here"))
+                child: Center(child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset('assets/icons/qibla.png'),
+                ))
                 //  Image(image: AssetImage('assets/launcher_icon.png')),
                 ),
             ExpansionTile(

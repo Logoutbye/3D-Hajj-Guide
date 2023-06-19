@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hajj_guide/Utils/my_app_drawer.dart';
 import 'package:hajj_guide/View/Qibla/qibla.dart';
-import 'package:hajj_guide/View/haj_guide_screen.dart';
+import 'package:hajj_guide/View/Hajj%20Rituals/haj_guide_screen.dart';
 import 'package:hajj_guide/View/hajj_check_list.dart';
-import 'package:hajj_guide/View/sketchFab.dart';
 import '../Utils/constants.dart';
 
 class HomePage extends StatefulWidget {

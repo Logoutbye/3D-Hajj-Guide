@@ -80,7 +80,7 @@ class _HajjChecklistState extends State<HajjChecklist> {
 
     // Calculate the scheduled time as two minutes from now
     DateTime now = DateTime.now();
-    DateTime scheduledTime = now.add(Duration(seconds: 10));
+    DateTime scheduledTime = now.add(Duration(seconds: 20));
 
     await flutterLocalNotificationsPlugin.schedule(
       index,

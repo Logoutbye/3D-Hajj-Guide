@@ -48,6 +48,7 @@ dependencies:
   url_launcher: ^6.1.10
 
   audioplayers: ^3.0.1
+  video_player: ^2.6.1
 
   # to store small values like tashbe, which language user prefer for using app
   shared_preferences: ^2.1.0
@@ -68,7 +69,9 @@ dependencies:
   # reminder system
   # android_alarm_manager_plus: ^3.0.1
   flutter_local_notifications: ^14.1.1
+  cloud_firestore: ^4.8.1
 
+  firebase_storage: ^11.2.3
   
   # pacakage for translations
   # flutter_localization: 

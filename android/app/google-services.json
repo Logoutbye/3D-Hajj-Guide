@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "37452349445",
+    "project_id": "hajj-guide-3997c",
+    "storage_bucket": "hajj-guide-3997c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37452349445:android:09e63c6165fdb1b3f71c6c",
+        "android_client_info": {
+          "package_name": "com.example.hajj_guide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "37452349445-b95711tcfacabpuob0kfm6tfn3aor45f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJP-oOg649sTR_GkzWvoD1iZxXCb7iGIA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "37452349445-b95711tcfacabpuob0kfm6tfn3aor45f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
