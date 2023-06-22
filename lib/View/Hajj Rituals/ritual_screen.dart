@@ -2,6 +2,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hajj_guide/Utils/constants.dart';
+import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:video_player/video_player.dart';
 
@@ -264,6 +265,7 @@ class _RitualScreenState extends State<RitualScreen> {
                       ],
                     )
                   : CircularProgressIndicator(),
+                  //  Lottie.asset('assets/hajj_loading.json',height: MediaQuery.of(context).size.height/4),
             ),
           ),
           //setting description or guide line

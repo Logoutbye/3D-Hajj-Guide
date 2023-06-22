@@ -72,7 +72,7 @@ dependencies:
   cloud_firestore: ^4.8.1
 
   firebase_storage: ^11.2.3
-  
+  lottie: ^2.4.0
   # pacakage for translations
   # flutter_localization: 
 
