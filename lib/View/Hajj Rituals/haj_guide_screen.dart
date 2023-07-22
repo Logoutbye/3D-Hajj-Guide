@@ -112,7 +112,7 @@ class _HajGuideScreenState extends State<HajGuideScreen> {
                                           MainAxisAlignment.center,
                                       children: [
                                         ImageIcon(
-                                          AssetImage("assets/icons/tent.png"),
+                                          AssetImage("assets/icons/tawaf.png"),
                                           size: 72,
                                         ),
                                         SizedBox(

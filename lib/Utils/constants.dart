@@ -18,9 +18,9 @@ class RitualsLinks {
   static String? engRitual5Link = '';
   static String? engRitual6Link = '';
   static String? engRitual7Link = '';
-  static String? engRitual8Link = '';
-  static String? engRitual9Link = '';
-  static String? engRitual10Link = '';
+  // static String? engRitual8Link = '';
+  // static String? engRitual9Link = '';
+  // static String? engRitual10Link = '';
   
   static String? urRitual1Link = '';
   static String? urRitual2Link = '';
@@ -29,9 +29,9 @@ class RitualsLinks {
   static String? urRitual5Link = '';
   static String? urRitual6Link = '';
   static String? urRitual7Link = '';
-  static String? urRitual8Link = '';
-  static String? urRitual9Link = '';
-  static String? urRitual10Link = '';
+  // static String? urRitual8Link = '';
+  // static String? urRitual9Link = '';
+  // static String? urRitual10Link = '';
   static String? lanaguage= '';
 
 
